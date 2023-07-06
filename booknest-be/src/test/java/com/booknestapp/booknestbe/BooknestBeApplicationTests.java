@@ -1,10 +1,10 @@
-package com.atufa.booknest;
+package com.booknestapp.booknestbe;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BooknestApplicationTests {
+class BooknestBeApplicationTests {
 
 	@Test
 	void contextLoads() {
