@@ -116,6 +116,14 @@ public class BookService {
                         book.getCategories(),
                         book.getImageLinks(),
                         reviewDto);
+            }else{
+                bookWithReview = new BookWithReviewDto(
+                        book.getId(),
+                        book.getTitle(),
+                        book.getAuthor(),
+                        book.getCategories(),
+                        book.getImageLinks(),
+                        null);
             }
             bookWithReviews.add(bookWithReview);
         }
