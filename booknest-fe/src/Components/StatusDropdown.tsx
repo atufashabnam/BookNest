@@ -6,7 +6,7 @@ import axios from 'axios';
 
 interface StatusDropdownProps {
   book: BookDTO,
-  setSelectedBooks: (selectedBooks: BookDTO[]) => void;
+  setSelectedBooks: React.Dispatch<React.SetStateAction<BookDTO[]>>;
 }
 
 
@@ -59,23 +59,23 @@ const StatusDropdown: React.FC<StatusDropdownProps> = ({book,  setSelectedBooks}
 
   return (
     <Form.Control
-              as="select"
-              value={book.review?.status ?? ''}
-              data-rating={book.review?.rating}
-              onChange={(event) => updateStatus(book.id, event.target.value)}
-            >
-              <option value="">Select Status</option>
-              <option value="Read" defaultValue={book.review?.status === 'Read'}>
-                Read
-              </option>
-              <option value="Unread" defaultValue={book.review?.status === 'Unread'}>
-                Unread
-              </option>
-              <option value="Reading" defaultValue={book.review?.status === 'Reading'}>
-                Reading
-              </option>
-            </Form.Control>
+      as="select"
+      value={book.review?.status ?? ''}
+      data-rating={book.review?.rating}
+      onChange={(event) => updateStatus(book.id, event.target.value)}
+    >
+      <option value="">Select Status</option>
+      <option value="Read" selected={book.review?.status === 'Read'}>
+        Read
+      </option>
+      <option value="Unread" selected={book.review?.status === 'Unread'}>
+        Unread
+      </option>
+      <option value="Reading" selected={book.review?.status === 'Reading'}>
+        Reading
+      </option>
+    </Form.Control>
   );
-};
+  }  
 
 export default StatusDropdown;

@@ -11,7 +11,7 @@ import NotesModal from './NotesModal';
 interface BookCardProps {
   books: BookDTO[];
   updateNotes: (bookId: string, newNotes: string) => void;
-  setSelectedBooks: (selectedBooks: BookDTO[]) => void;
+  setSelectedBooks: React.Dispatch<React.SetStateAction<BookDTO[]>>;
   deleteBook: (bookId: string) => void;
 }
 

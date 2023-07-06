@@ -6,7 +6,7 @@ import axios from "axios";
 interface BookProps {
   bookId: string;
   starRating: number;
-  setSelectedBooks: (selectedBooks: BookDTO[]) => void;
+  setSelectedBooks: React.Dispatch<React.SetStateAction<BookDTO[]>>;
 }
 
 const StarRating: React.FC<BookProps> = ({ bookId, starRating, setSelectedBooks }) => {
