@@ -3,24 +3,21 @@ import StarRating from './StarRating';
 import './BookCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { RiStickyNoteLine } from 'react-icons/ri';
-import { AiFillDelete, AiOutlineDelete } from 'react-icons/ai';
 import StatusDropdown from './StatusDropdown';
 import { BookDTO} from './interfaces';
 import NotesModal from './NotesModal';
+import DeleteBook from './DeleteBook';
 
 interface BookCardProps {
   books: BookDTO[];
   updateNotes: (bookId: string, newNotes: string) => void;
   setSelectedBooks: React.Dispatch<React.SetStateAction<BookDTO[]>>;
-  deleteBook: (bookId: string) => void;
 }
-
 
 const BookCard: React.FC<BookCardProps> = ({
   books,
   updateNotes,
   setSelectedBooks,
-  deleteBook,
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState('');
@@ -41,7 +38,6 @@ const BookCard: React.FC<BookCardProps> = ({
     setShowModal(true);
   };
 
-  
   return (
     <div className="book-card">
       {books.map((book) => (
@@ -61,8 +57,7 @@ const BookCard: React.FC<BookCardProps> = ({
           <div className="icons-row">
             <RiStickyNoteLine className="notes-icon"
               onClick={() => handleAddNote(book.id)} size={30}/>
-            <AiFillDelete className="delete-icon"
-              onClick={() => deleteBook(book.id)} size={30}/>
+            <DeleteBook  bookId={book.id} setSelectedBooks={setSelectedBooks}/>
           </div>
         </div>
       ))}

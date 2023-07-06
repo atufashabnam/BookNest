@@ -43,7 +43,7 @@ function Books(): JSX.Element {
       console.error(error);
     }
   };
-  
+
   const handleDropDownChange = () => {
     setDropDownMenu(true);
   };
@@ -71,12 +71,6 @@ function Books(): JSX.Element {
       console.error('Error adding book:', error);
     }
   };
-
-  
-
-
- 
-
 
   const updateNotes = async (bookId: string, newNotes: string) => {
 
@@ -119,26 +113,6 @@ function Books(): JSX.Element {
       console.error('Error updating status:', error);
     }
   };
-
-  const deleteBook = async (bookId: string) => {
-
-    try {
-      const url = `${APPLICATION_URL}/${bookId}`;
-      const response = await axios.delete<ReviewDto>(
-        url.trim()
-      );
-      if (response.status === 200) {
-        setSelectedBooks((prevSelectedBooks) =>
-          prevSelectedBooks.filter((book) => book.id !== bookId)
-        );
-      } else {
-        console.error('Failed to update status');
-      }
-    } catch (error) {
-      console.error('Error updating status:', error);
-    }
-  };
-
  
 
   return (
@@ -177,7 +151,6 @@ function Books(): JSX.Element {
         books={selectedBooks}
         updateNotes={updateNotes}
         setSelectedBooks={setSelectedBooks}
-        deleteBook={deleteBook}
       />
     </>
   );
