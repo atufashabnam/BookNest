@@ -11,7 +11,7 @@ interface StatusDropdownProps {
 }
 
 
-const StatusDropdown: React.FC<StatusDropdownProps> = ({book,  setSelectedBooks}) => {
+const StatusDropdown: React.FC<StatusDropdownProps> = ({ book, setSelectedBooks }) => {
 
   const APPLICATION_URL = "http://localhost:3000/api/books";
 
@@ -35,7 +35,7 @@ const StatusDropdown: React.FC<StatusDropdownProps> = ({book,  setSelectedBooks}
                   status: updatedReview.status,
                 }
               };
-            }else if (!book.review) {
+            } else if (!book.review) {
               return {
                 ...book,
                 review: {
@@ -61,23 +61,17 @@ const StatusDropdown: React.FC<StatusDropdownProps> = ({book,  setSelectedBooks}
   return (
     <Form.Control
       as="select"
-      value={book.review?.status ?? ''}
+      defaultValue={book.review?.status || ''}
       data-rating={book.review?.rating}
       onChange={(event) => updateStatus(book.id, event.target.value)}
       className="status-dropdown"
     >
       <option value="">Select Status</option>
-      <option value="Read" selected={book.review?.status === 'Read'}>
-        Read
-      </option>
-      <option value="Unread" selected={book.review?.status === 'Unread'}>
-        Unread
-      </option>
-      <option value="Reading" selected={book.review?.status === 'Reading'}>
-        Reading
-      </option>
+      <option value="Read">Read</option>
+      <option value="Unread">Unread</option>
+      <option value="Reading">Reading</option>
     </Form.Control>
   );
-  }  
+}
 
 export default StatusDropdown;

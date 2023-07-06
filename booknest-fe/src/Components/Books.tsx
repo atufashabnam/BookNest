@@ -107,7 +107,7 @@ function Books(): JSX.Element {
       </div>
       <div className="container">
     {selectedBooks.map((book) => (
-      <div className="box">
+      <div  key={book.id} className="box">
         <BookCard book={book} setSelectedBooks={setSelectedBooks} />
       </div>
     ))}
