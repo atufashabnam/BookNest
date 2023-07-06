@@ -10,7 +10,7 @@ const NotesModal: React.FC<ModalProps> = ({
   onChange,
   title,
 }) => {
-  
+
   return (
     <Modal show={show} onHide={onClose}>
       <Modal.Header closeButton>

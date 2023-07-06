@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import axios from 'axios';
 import BookCard from './BookCard';
-import { BookDTO, ReviewDto, Book } from './interfaces';
+import { BookDTO, Book } from './interfaces';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 function Books(): JSX.Element {
@@ -72,57 +72,14 @@ function Books(): JSX.Element {
     }
   };
 
-  const updateNotes = async (bookId: string, newNotes: string) => {
-
-    try {
-      const url = `${APPLICATION_URL}/review/${bookId}`;
-      const response = await axios.put<ReviewDto>(
-        url.trim(),
-        { notes: newNotes }
-      );
-      if (response.status === 200) {
-        const updatedReview = response.data;
-        setSelectedBooks((prevSelectedBooks: BookDTO[]) =>
-          prevSelectedBooks.map((book) => {
-            if (book.review && book.review.id === updatedReview.id) {
-              return {
-                ...book,
-                review: {
-                  ...book.review,
-                  notes: updatedReview.notes,
-                }
-              };
-            } else if (!book.review) {
-              return {
-                ...book,
-                review: {
-                  status: updatedReview.status,
-                  id: updatedReview.id,
-                  rating: updatedReview.rating,
-                  notes: updatedReview.notes
-                }
-              };
-            }
-            return book;
-          }) as BookDTO[]
-        );
-      } else {
-        console.error('Failed to update status');
-      }
-    } catch (error) {
-      console.error('Error updating status:', error);
-    }
-  };
- 
-
   return (
     <>
       <div className='header-container'>
         <nav>
-        <h1>Book Nest</h1>
+          <h1>Book Nest</h1>
         </nav>
         <div className="search-container">
-        <button className="search-button"> <AiOutlineSearch/>Search</button>
+          <button className="search-button"> <AiOutlineSearch />Search</button>
           <input
             type="text"
             value={query}
@@ -144,14 +101,16 @@ function Books(): JSX.Element {
               ))}
             </div>
           )}
-         
         </div>
       </div>
-      <BookCard
-        books={selectedBooks}
-        updateNotes={updateNotes}
-        setSelectedBooks={setSelectedBooks}
-      />
+      {selectedBooks.map((book) => (
+        <div key={book.id}>
+          <BookCard
+            book={book}
+            setSelectedBooks={setSelectedBooks}
+          />
+        </div>
+      ))}:
     </>
   );
 }

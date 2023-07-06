@@ -13,10 +13,10 @@ const StarRating: React.FC<BookProps> = ({ bookId, starRating, setSelectedBooks 
   const [rating, setRating] = useState<number>(starRating);
   const [hover, setHover] = useState<number>(0);
   const APPLICATION_URL = "http://localhost:3000/api/books";
-  
+
   const handleRatingChange = (index: number) => {
     setRating(index);
-    updateRating(bookId,index);
+    updateRating(bookId, index);
   };
 
   const updateRating = async (bookId: string, newRating: number) => {
@@ -45,7 +45,6 @@ const StarRating: React.FC<BookProps> = ({ bookId, starRating, setSelectedBooks 
             return book;
           }) as BookDTO[]
         );
-
       } else {
         console.error('Failed to update status');
       }
@@ -58,7 +57,7 @@ const StarRating: React.FC<BookProps> = ({ bookId, starRating, setSelectedBooks 
     <div className="star-rating">
       {[...Array(5)].map((star, index) => {
         index += 1;
-      
+
         return (
           <button
             type="button"

@@ -11,7 +11,7 @@ interface BookProps {
 
 const DeleteBook: React.FC<BookProps> = ({ bookId, setSelectedBooks }) => {
   const APPLICATION_URL = "http://localhost:3000/api/books";
-  
+
   const deleteBookData = async (bookId: string) => {
 
     try {
@@ -33,8 +33,8 @@ const DeleteBook: React.FC<BookProps> = ({ bookId, setSelectedBooks }) => {
 
   return (
     <>
-        <AiFillDelete className="delete-icon"
-        onClick={() => deleteBookData(bookId)} size={30}/>
+      <AiFillDelete className="delete-icon"
+        onClick={() => deleteBookData(bookId)} size={30} />
     </>
   );
 };
