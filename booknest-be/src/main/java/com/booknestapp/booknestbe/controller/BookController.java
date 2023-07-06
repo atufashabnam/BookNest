@@ -58,36 +58,6 @@ public class BookController {
         }
     }
 
-    @PutMapping("/status/{reviewId}")
-    public ResponseEntity<Review> updateStatus(@PathVariable Long reviewId, @RequestParam String status) {
-        try {
-            Review review = bookService.getReviewById(reviewId);
-            if (review != null) {
-                Review savedReview = bookService.updateReviewStatus(review, status);
-                return ResponseEntity.ok(savedReview);
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-
-    @PutMapping("/notes/{reviewId}")
-    public ResponseEntity<Review> addNotes(@PathVariable Long reviewId, @RequestParam String notes) {
-        try {
-            Review review = bookService.getReviewById(reviewId);
-            if (review != null) {
-                Review savedReview = bookService.addReviewNotes(review, notes);
-                return ResponseEntity.ok(savedReview);
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBookAndNotes(@PathVariable("id") String id) {
         try {
@@ -102,18 +72,6 @@ public class BookController {
         }
     }
 
-    @DeleteMapping("/review/{reviewId}")
-    public ResponseEntity<String> deleteReview(@PathVariable Long reviewId) {
-        try {
-            boolean deleted = bookService.deleteReview(reviewId);
-            if (deleted) {
-                return ResponseEntity.ok("Review deleted successfully");
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
+
 }
 

@@ -10,3 +10,7 @@ button {
   .off {
     color: #ccc;
   }
+
+  .star-rating, .star {
+    background-color: #967E76;
+  }

@@ -3,7 +3,7 @@ import StarRating from './StarRating';
 import './BookCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { RiStickyNoteLine } from 'react-icons/ri';
-import { AiOutlineDelete } from 'react-icons/ai';
+import { AiFillDelete, AiOutlineDelete } from 'react-icons/ai';
 import StatusDropdown from './StatusDropdown';
 import { BookDTO} from './interfaces';
 import NotesModal from './NotesModal';
@@ -49,7 +49,6 @@ const BookCard: React.FC<BookCardProps> = ({
           <div className="book-details">
             <h3>{book.title}</h3>
             <p>{book.authors}</p>
-            {book.description && <p>Description: {book.description}</p>}
             <img src={book.imageLinks} alt={book.title} />
             <StarRating
               bookId={book.id}
@@ -62,7 +61,7 @@ const BookCard: React.FC<BookCardProps> = ({
           <div className="icons-row">
             <RiStickyNoteLine className="notes-icon"
               onClick={() => handleAddNote(book.id)} size={30}/>
-            <AiOutlineDelete className="delete-icon"
+            <AiFillDelete className="delete-icon"
               onClick={() => deleteBook(book.id)} size={30}/>
           </div>
         </div>

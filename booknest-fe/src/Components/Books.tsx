@@ -2,6 +2,7 @@ import { useState, ChangeEvent, useEffect } from 'react';
 import axios from 'axios';
 import BookCard from './BookCard';
 import { BookDTO, ReviewDto, Book } from './interfaces';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 function Books(): JSX.Element {
   const APPLICATION_URL = "http://localhost:3000/api/books";
@@ -10,9 +11,25 @@ function Books(): JSX.Element {
   const [selectedBooks, setSelectedBooks] = useState<BookDTO[]>([]);
   const [dropDownMenu, setDropDownMenu] = useState(false);
 
-  const handleDropDownChange = () => {
-    setDropDownMenu(true);
-  };
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await axios
+          .get(APPLICATION_URL,
+            {
+              headers: {
+                "Content-Type": "application/json"
+              }
+            });
+        if (response.data && response.data) {
+          setSelectedBooks(response.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchBooks();
+  }, []);
 
   const handleSearch = async (e: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value;
@@ -25,6 +42,10 @@ function Books(): JSX.Element {
     } catch (error) {
       console.error(error);
     }
+  };
+  
+  const handleDropDownChange = () => {
+    setDropDownMenu(true);
   };
 
   const addBookToMain = async (book: Book) => {
@@ -50,6 +71,11 @@ function Books(): JSX.Element {
       console.error('Error adding book:', error);
     }
   };
+
+  
+
+
+ 
 
 
   const updateNotes = async (bookId: string, newNotes: string) => {
@@ -113,30 +139,16 @@ function Books(): JSX.Element {
     }
   };
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response = await axios
-          .get(APPLICATION_URL,
-            {
-              headers: {
-                "Content-Type": "application/json"
-              }
-            });
-        if (response.data && response.data) {
-          setSelectedBooks(response.data);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchBooks();
-  }, []);
+ 
 
   return (
     <>
-      <div>
+      <div className='header-container'>
+        <nav>
+        <h1>Book Nest</h1>
+        </nav>
         <div className="search-container">
+        <button className="search-button"> <AiOutlineSearch/>Search</button>
           <input
             type="text"
             value={query}
@@ -158,7 +170,7 @@ function Books(): JSX.Element {
               ))}
             </div>
           )}
-          <button className="search-button">Search</button>
+         
         </div>
       </div>
       <BookCard

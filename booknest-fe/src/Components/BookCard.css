@@ -1,6 +1,6 @@
 .book-card {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 20px;
   }
   
@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #fff;
+    background-color: #9BABB8;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -34,6 +34,19 @@
   }
   .delete-icon {
     font-size: 30px;
-    color: red; /* Change the color if desired */
+    color: maroon; 
+  }
+
+  .book-details {
+    background-color: #967E76;
+  }
+
+  h3 {
+    background-color: #967E76;
+  }
+
+  .icons-row, .delete-icon, .notes-icon {
+    background-color: #9BABB8;
+    margin: 10px;
   }
   
