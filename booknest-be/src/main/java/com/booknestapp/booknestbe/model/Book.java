@@ -21,6 +21,8 @@ public class Book {
 
     private String imageLinks;
 
+    private String description;
+
     @OneToOne(mappedBy = "book")
     @JsonIgnore
     private Review review;

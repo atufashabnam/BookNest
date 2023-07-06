@@ -3,6 +3,7 @@ import { Form } from 'react-bootstrap';
 
 import { BookDTO, ReviewDto } from './interfaces';
 import axios from 'axios';
+import './StatusDropdown.css';
 
 interface StatusDropdownProps {
   book: BookDTO,
@@ -63,6 +64,7 @@ const StatusDropdown: React.FC<StatusDropdownProps> = ({book,  setSelectedBooks}
       value={book.review?.status ?? ''}
       data-rating={book.review?.rating}
       onChange={(event) => updateStatus(book.id, event.target.value)}
+      className="status-dropdown"
     >
       <option value="">Select Status</option>
       <option value="Read" selected={book.review?.status === 'Read'}>

@@ -11,6 +11,6 @@ button {
     color: #ccc;
   }
 
-  .star-rating, .star {
-    background-color: #967E76;
-  }
+.delete-icon {
+  color: maroon;
+}

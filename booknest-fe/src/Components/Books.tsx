@@ -3,6 +3,7 @@ import axios from 'axios';
 import BookCard from './BookCard';
 import { BookDTO, Book } from './interfaces';
 import { AiOutlineSearch } from 'react-icons/ai';
+import './Books.css';
 
 function Books(): JSX.Element {
   const APPLICATION_URL = "http://localhost:3000/api/books";
@@ -56,6 +57,7 @@ function Books(): JSX.Element {
       authors: book.volumeInfo.authors[0],
       categories: book.volumeInfo.categories?.[0] ?? '',
       imageLinks: book.volumeInfo.imageLinks?.thumbnail ?? '',
+      description: book.volumeInfo.description?.substring(0,200) ?? '',
     }
 
     try {
@@ -73,9 +75,9 @@ function Books(): JSX.Element {
   };
 
   return (
-    <>
-      <div className='header-container'>
-        <nav>
+    <div>
+      <div>
+        <nav className='header'>
           <h1>Book Nest</h1>
         </nav>
         <div className="search-container">
@@ -92,7 +94,7 @@ function Books(): JSX.Element {
             <div className="search-dropdown">
               {books.map((book) => (
                 <div key={book.id} className="search-result">
-                  <h2 className="title">{book.volumeInfo.title}</h2>
+                  <span className="title">{book.volumeInfo.title}</span>
                   {book.volumeInfo.authors && (
                     <p className="authors">Author(s): {book.volumeInfo.authors.join(', ')}</p>
                   )}
@@ -103,15 +105,14 @@ function Books(): JSX.Element {
           )}
         </div>
       </div>
-      {selectedBooks.map((book) => (
-        <div key={book.id}>
-          <BookCard
-            book={book}
-            setSelectedBooks={setSelectedBooks}
-          />
-        </div>
-      ))}:
-    </>
+      <div className="container">
+    {selectedBooks.map((book) => (
+      <div className="box">
+        <BookCard book={book} setSelectedBooks={setSelectedBooks} />
+      </div>
+    ))}
+  </div>
+    </div>
   );
 }
 

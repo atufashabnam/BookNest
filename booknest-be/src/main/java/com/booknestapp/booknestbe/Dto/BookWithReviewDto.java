@@ -7,6 +7,7 @@ public record BookWithReviewDto(
      String author,
      String categories,
      String imageLinks,
+     String description,
      ReviewDto review
      ) {
     }

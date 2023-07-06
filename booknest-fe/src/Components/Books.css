@@ -1,123 +1,66 @@
-
-
-body {
-  color: #333;
-}
-
 .container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-h1 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
+.box {
+  margin: 10px;
 }
 
-.header-container {
-  background-color: #967E76;
+.header {
+  background-color: black;
+  color: #fff;
+  padding: 4px;
 }
 
 .search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  align-self: center;
+  margin: 10px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.search-dropdown {
+  border: 1px solid lightgray;
+  max-width: 500px;
+  margin: 0;
+  border-radius: 4px;
 }
 
 .search-input {
   flex: 1;
-  padding: 10px;
-  border: none;
+  height: 38px;
+  padding: 6px 12px;
+  font-size: 14px;
   border-radius: 4px;
-  font-size: 16px;
-  background-color: #967E76;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ced4da;
+  background-color: #ffffff;
+  color: #495057;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.search-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.search-button:hover {
-  background-color: #0056b3;
-}
-
-.search-dropdown {
-  list-style: none;
-  z-index: 1;
-  top: 40px;
-  background-color: white;
-  position: absolute;
-  width: 100%;
-  border-radius: 4px;
-  overflow-y: auto;
+.search-input:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .search-result {
-  margin-bottom: 10px;
-}
-
-.title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.authors {
-  font-size: 14px;
-  margin-bottom: 5px;
-  color: #888;
+  border-bottom: #ced4da 1px solid;
+  display: flex;
+  flex-direction: column;
 }
 
 .add-button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  border: none;
   border-radius: 4px;
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
+  
 }
 
-.add-button:hover {
-  background-color: #0056b3;
+.search-result:nth-child(even) {
+  background-color: #f2f2f2; /* Set the background color for even rows */
 }
 
-@media screen and (max-width: 480px) {
-  .container {
-    padding: 10px;
-  }
 
-  h1 {
-    font-size: 24px;
-  }
-
-  .search-container {
-    flex-direction: column;
-    align-items: stretch;
-    margin-bottom: 10px;
-  }
-
-  .search-input {
-    margin-bottom: 10px;
-  }
-
-  .search-button {
-    margin-left: 0;
-  }
-
-  nav {
-    background-color: #967E76;
-  }
-}
