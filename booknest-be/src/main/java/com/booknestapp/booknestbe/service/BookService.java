@@ -57,21 +57,6 @@ public class BookService {
         }
     }
 
-    public Review getReviewById(Long reviewId) throws NotFoundException {
-        return reviewRepository.findById(reviewId)
-                .orElseThrow(NotFoundException::new);
-    }
-
-
-    public Review updateReviewStatus(Review review, String status) {
-        review.setStatus(status);
-        return reviewRepository.save(review);
-    }
-
-    public Review addReviewNotes(Review review, String notes) {
-        review.setNotes(notes);
-        return reviewRepository.save(review);
-    }
 
     public boolean deleteBook(String id) throws NotFoundException {
         Book book = bookRepository.findById(id)
@@ -84,18 +69,6 @@ public class BookService {
         bookRepository.delete(book);
         return true;
     }
-
-
-    public boolean deleteReview(Long reviewId) {
-        boolean exists = reviewRepository.existsById(reviewId);
-        if (exists) {
-            reviewRepository.deleteById(reviewId);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
 
     public List<BookWithReviewDto> getAllBooksWithReviews() {
         List<Book> books = bookRepository.findAll();
@@ -115,6 +88,7 @@ public class BookService {
                         book.getAuthor(),
                         book.getCategories(),
                         book.getImageLinks(),
+                        book.getDescription(),
                         reviewDto);
             }else{
                 bookWithReview = new BookWithReviewDto(
@@ -123,6 +97,7 @@ public class BookService {
                         book.getAuthor(),
                         book.getCategories(),
                         book.getImageLinks(),
+                        book.getDescription(),
                         null);
             }
             bookWithReviews.add(bookWithReview);
