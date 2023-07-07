@@ -77,7 +77,11 @@
   margin-top: 20px;
 }
 
-/* Flip Animation */
 .book-card.flipped .book {
   transform: rotateY(180deg);
 }
+
+.book-title, .book-description {
+  background-color: white;
+}
+

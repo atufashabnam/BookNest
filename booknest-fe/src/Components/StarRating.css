@@ -12,5 +12,18 @@ button {
   }
 
 .delete-icon {
-  color: maroon;
+  color: #E50815;
+  background-color: white;
+}
+
+.notes-icon, .star-rating, .star {
+  background-color: white;
+}
+
+.show {
+  background-color: transparent;
+}
+
+.modal-header, .modal-body, .modal-title, .modal-content {
+  background-color: white;
 }

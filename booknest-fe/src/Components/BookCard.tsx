@@ -40,7 +40,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, setSelectedBooks }) => {
             </div>
           </div>
           <div className="book-back" onClick={handleCardClick}>
-            <p >{book.description}</p>
+            <p className='book-description'>{book.description}</p>
           </div>
         </div>
       </div>

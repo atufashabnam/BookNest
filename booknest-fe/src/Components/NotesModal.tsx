@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { ModalProps } from './interfaces';
+import './StarRating.css';
 
 const NotesModal: React.FC<ModalProps> = ({
   show,
