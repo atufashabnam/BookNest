@@ -48,7 +48,7 @@ h1 {
   border-radius: 4px;
   border: 1px solid #ced4da;
   background-color: #333;
-  color: #495057;
+  color: white;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   width: 370px;
   margin: 5px;
