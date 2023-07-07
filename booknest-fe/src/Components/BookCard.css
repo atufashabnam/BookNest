@@ -44,7 +44,7 @@
   transform-style: preserve-3d;
   transform: rotateY(0deg);
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-y: auto ;
 }
 
 .book-back {

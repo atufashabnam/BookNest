@@ -1,8 +1,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .box {
@@ -17,6 +16,11 @@
 
 .search-container {
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 h1 {
@@ -40,12 +44,15 @@ h1 {
   background-color: #ffffff;
   color: #495057;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 370px;
+  margin: 5px;
+  padding: 10px;
 }
 
 .search-input:focus {
-  border-color: #80bdff;
+  border-color: black;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem grey;
 }
 
 .search-result {
@@ -56,11 +63,23 @@ h1 {
 
 .add-button {
   border-radius: 4px;
-  
+  background-color: grey;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+  box-shadow: #ced4da;
+  width: 75px;
+  text-align: center;
 }
 
 .search-result:nth-child(even) {
-  background-color: #f2f2f2; /* Set the background color for even rows */
+  background-color: #f2f2f2; 
 }
 
-
+.search-span {
+  margin: 10px;
+  padding: 5px;
+  width: 100px;
+}

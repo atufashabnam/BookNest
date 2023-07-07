@@ -81,7 +81,7 @@ function Books(): JSX.Element {
           <h1>Book Nest</h1>
         </nav>
         <div className="search-container">
-          <button className="search-button"> <AiOutlineSearch />Search</button>
+          <span className="search-span"> <AiOutlineSearch />Search</span>
           <input
             type="text"
             value={query}
