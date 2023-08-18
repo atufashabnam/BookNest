@@ -1,6 +1,6 @@
 # BookNest App
 
-The Personal Book App is a web application that allows you to search for books using the Google Books API, add books to your personal database, change the status of the books (read, unread, in progress), rate books, take notes while reading, and delete books. The app is developed using Spring Boot, PostgreSQL, and React.
+The BookNest App is a web application that allows you to search for books using the Google Books API, add books to your personal database, change the status of the books (read, unread, in progress), rate books, take notes while reading, and delete books. The app is developed using Spring Boot, PostgreSQL, and React.
 
 ## Features
 
